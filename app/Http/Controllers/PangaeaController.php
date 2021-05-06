@@ -30,7 +30,7 @@ class PangaeaController extends Controller
 
     public function publish(PublishRequest $request, $topic)
     {
-        $result = $this->subscriptionService->publishTopic($topic, $request->url);
+        $result = $this->subscriptionService->publishTopic($topic, $request->message);
         return ($result) ? response(['status' => $result, 'message' => 'Post published successfully and notification sent to subscribers'], 200) 
                         : response(['status' => $result], 422);
     }
